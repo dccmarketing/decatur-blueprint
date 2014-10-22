@@ -1,0 +1,25 @@
+.site-content {
+	margin-bottom: $size__default-bot-marg;
+	@include grid-row();
+	max-width: $size__max-width;
+}
+
+.content-area {
+	@include grid-column(12);
+
+	@media only screen and (min-width: $bp__tablet) {
+		@include grid-column(8);
+
+		&.sidebar-content {
+			float: right;	
+		}
+	}
+}
+
+.widget-area {
+	@include grid-column(12);
+
+	@media only screen and (min-width: $bp__tablet) {
+		@include grid-column(4);
+	}
+}
