@@ -14,19 +14,9 @@
 
 		<div class="footer-wrap">
 
-			<div class="footer-left"><?php
-
-				do_action( 'footer_left' );
-
-			?></div><!-- .footer_left -->
 			<div class="site-info"><?php
 
 				do_action( 'site_info' );
-
-			?></div><!-- .site-info -->
-			<div class="footer-right"><?php
-
-				do_action( 'footer_right' );
 
 			?></div><!-- .site-info -->
 		

@@ -1,8 +1,14 @@
-$font__main 				: sans-serif;
+$font__main 				: 'PT Sans Narrow', sans-serif;
 $font__code 				: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre 					: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body 	: 1.5;
 $font__line-height-pre 		: 1.6;
 $font__size-social 			: 36px;
+
+$font__size-tagline 		: 48px;
+$font__size-main-menu 		: 48px;
+$font__size-work-menu 		: 30px;
+$font__size-video-caption 	: 30px;
+$font__size-side-menu 		: 20px;
 
 @import "fontawesome";

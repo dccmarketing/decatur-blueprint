@@ -43,7 +43,8 @@ function decaturblueprint_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'decatur-blueprint' ),
-		'social' => __( 'Social Links', 'decatur-blueprint' )
+		'social' => __( 'Social Links', 'decatur-blueprint' ),
+		'dowork' => __( 'Do Work Menu', 'decatur-blueprint' )
 	) );
 
 	/*
@@ -135,26 +136,16 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Customize footer
  */
-function custom_footer_left() {
-
-	//
-
-} // custom_footer_left()
-add_action( 'footer_left', 'custom_footer_left' );
-
 function custom_site_info() {
 
-	printf( __( '<div class="copyright">All content &copy %1$s &nbsp; <a href="%2$s" title="Login">%3$s</a></a></div>', 'decatur-blueprint' ), date( 'Y' ), get_admin_url(), get_bloginfo( 'name' ) );
+	printf( __( '<div class="copyright">&copy %1$s <a href="%2$s" title="Login">%3$s</a></a></div>', 'decatur-blueprint' ), date( 'Y' ), get_admin_url(), get_bloginfo( 'name' ) );
+
+	echo '<div class="address"><address>230 West Wood &middot; Decatur, IL 62523</address> &middot; <a href="tel:2174237589">217-423-7589</a></div>';
+	echo '<div class="credits">' . __( 'Site designed and developed by', 'decatur-blueprint' ) . ' <a href="http://dccmarketing.com" title="DCC Marketing">DCC Marketing</a></div>';
 
 } // custom_site_info()
 add_action( 'site_info', 'custom_site_info' );
 
-function custom_footer_right() {
-
-	// 
-
-} // custom_footer_right()
-add_action( 'footer_right', 'custom_footer_right' );
 
 
 /**
@@ -162,8 +153,8 @@ add_action( 'footer_right', 'custom_footer_right' );
  */
 function load_fonts() {
 
-	wp_register_style( 'fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
-	wp_enqueue_style( 'fontawesome' );	
+	wp_register_style( 'et-googleFonts', 'http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' );
+	wp_enqueue_style( 'et-googleFonts' );	
 
 } // load_fonts()
 add_action( 'wp_print_styles', 'load_fonts' );

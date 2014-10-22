@@ -1,9 +1,9 @@
-/*
+/*!
 Theme Name: Decatur Blueprint
-Theme URI: http://underscores.me/
-Author: Slushman
-Author URI: http://slushman.com/
-Description: This is a blank starter theme for WordPress derived from Decatur Blueprint by Automattic and including the Foundation framework.
+Theme URI: http://decaturblue.com/
+Author: Chris Wilcoxson & Brian Armstrong
+Author URI: http://dccmarketing.com/
+Description: This is a custom theme for Decatur Blueprint.
 Version: 1.0-wpcom
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,13 +13,46 @@ Tags:
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
- Decatur Blueprint is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+_s is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
 */
+
+/*
+Fonts: 
+FONT FAMILY - PT Sans Narrow
+“we do that” - regular 48
+Tools menu font – regular 48
+“Ready. Set. Build.” - bold 30
+“our work” menu – headings - regular 20
+“our work” menu – listings - bold 20
+
+Colors: 
+“do work” & icon “blue" - 047abb
+“do work” & icon selected menu “dark gray" - 58595b
+Social media icons “gray” - bcbec0
+“studio blue” background blue - 047abb (technically it's a multiply effect over an image, but I don't know if you have the capability to do that. If not, we can just use a 50% opacity)
+“tradeshow banner name – client” selected blue - 8baed9
+Form fields outline & submit button – is that the same blue as “do work”? - 047abb
+
+053a5b
+
+Pictures:
+This might be a more in depth convo to be had….It's a fairly graphics heavy site and certain images and where they go, heavily depend on the client.
+
+Opacity:
+White center “blue” logo, unless that’s going to be part of a background image - 40% opacity - will be used as a stand alone element
+Blue overlay for each page/menu - 047abb 97%
+White menu/content area background - 97%
+
+Widths:
+Message us bar - 648 px
+Studio bar bar (the white part) - 396 px
+Digital Color Printing bar - 504 px
+ */
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:

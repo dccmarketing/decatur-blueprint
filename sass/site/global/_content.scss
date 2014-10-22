@@ -1,3 +1,9 @@
+.site {
+	background 		: url( images/bkgd.jpg );
+	background-size : cover;
+}
+
+
 .site-content {
 	margin-bottom: $size__default-bot-marg;
 	@include grid-row();

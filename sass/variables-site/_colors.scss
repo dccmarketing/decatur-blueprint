@@ -1,6 +1,11 @@
-$light	: #fff;
-$med	: #ccc;
-$dark	: #020202;
+$light		: #fff;
+$med		: #bcbec0;
+$dark		: #020202;
+$blue 		: #047abb;
+$darkgray 	: #58595b;
+$medblue 	: #8baed9;
+$darkblue 	: #053a5b;
+
 
 // Backgrounds
 $color__background-body		: $light;
@@ -9,6 +14,7 @@ $color__background-hr		: #ccc;
 $color__background-button	: #e6e6e6;
 $color__background-pre		: #eee;
 $color__background-ins		: #fff9c0;
+$color__bg-site-header 		: $light;
 
 // Text colors
 $color__text-screen			: #21759b;
@@ -18,9 +24,10 @@ $color__link				: royalblue;
 $color__link-visited		: purple;
 $color__link-hover			: midnightblue;
 $color__text-main			: #404040;
-$color__text-social 		: $light;
+$color__text-social 		: $med;
 $color__text-ins 			: black;
 $color__text-button 		: rgba(0, 0, 0, .8);
+$color__text-site-desc 		: $med;
 
 // Border colors
 $color__border-button		: #ccc #ccc #bbb;
@@ -39,8 +46,8 @@ $color__shadow-button-inner-focus 	: rgba(255, 255, 255, 0.5);
 $color__shadow-button-inner-2-focus : rgba(0, 0, 0, 0.15);
 
 // Menu colors
-$color__bg-menu-button			: $med;
-$color__bg-menu-item-mobile		: $med;
+$color__bg-menu-button			: $blue;
+$color__bg-menu-item-mobile		: $blue;
 $color__bg-menu-item			: $med;
 $color__bg-menu-current			: darken( $color__bg-menu-item, 25% );
 $color__text-menu-mobile		: $light;
@@ -51,3 +58,13 @@ $color__text-menu-button		: $light;
 $color__text-menu-current		: $light;
 $color__text-menu-current-hover	: $med;
 $color__text-submenu			: $light;
+
+// Do Work Menu
+$color__bg-workmenu-button 		: transparent;
+$color__bg-nav-dowork 			: $darkblue;
+
+$color__text-workmenu-button 	: $blue;
+$color__text-menu-dowork 		: $light;
+
+$color__border-dowork-item 		: $blue;
+

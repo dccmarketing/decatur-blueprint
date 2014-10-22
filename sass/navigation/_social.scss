@@ -1,4 +1,5 @@
 .nav-social {
+	float: right;
 
 	.screen-reader-text,
 	a {
@@ -18,37 +19,37 @@
 	}
 
 	a[href*="facebook.com"] {
-		@include socialicon( $fa-var-facebook );
+		@include db_social( $fa-var-facebook );
 	}
 	a[href*="twitter.com"] {
-		@include socialicon( $fa-var-twitter );
+		@include db_social( $fa-var-twitter );
 	}
 	a[href*="plus.google.com"] {
-		@include socialicon( $fa-var-google-plus );
+		@include db_social( $fa-var-google-plus );
 	}
 	a[href*="pinterest.com"] {
-		@include socialicon( $fa-var-pinterest );
+		@include db_social( $fa-var-pinterest );
 	}
 	a[href*="tumblr.com"] {
-		@include socialicon( $fa-var-tumblr );
+		@include db_social( $fa-var-tumblr );
 	}
 	a[href*="youtube.com"] {
-		@include socialicon( $fa-var-youtube );
+		@include db_social( $fa-var-youtube );
 	}
 	a[href*="flickr.com"] {
-		@include socialicon( $fa-var-flickr );
+		@include db_social( $fa-var-flickr );
 	}
 	a[href*="instagram.com"] {
-		@include socialicon( $fa-var-instagram );
+		@include db_social( $fa-var-instagram );
 	}
 	a[href*="linkedin.com"] {
-		@include socialicon( $fa-var-linkedin );
+		@include db_social( $fa-var-linkedin );
 	}
 	a[href$=".rss"], 
 	a[href$="rss.xml"], 
 	a[href*="/feed/"],
 	a[href*="/rss/"] {
-		@include socialicon( $fa-var-rss );
+		@include db_social( $fa-var-rss );
 	}
 
 }

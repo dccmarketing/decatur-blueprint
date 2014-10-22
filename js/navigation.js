@@ -7,12 +7,14 @@
 	var container, button, menu;
 
 	container = document.getElementById( 'site-navigation' );
-	if ( ! container )
+	if ( ! container ) {
 		return;
+	}
 
 	button = container.getElementsByTagName( 'button' )[0];
-	if ( 'undefined' === typeof button )
+	if ( 'undefined' === typeof button ) {
 		return;
+	}
 
 	menu = container.getElementsByTagName( 'ul' )[0];
 
@@ -22,13 +24,49 @@
 		return;
 	}
 
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) )
+	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
 		menu.className += ' nav-menu';
+	}
 
 	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) )
+		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
 			container.className = container.className.replace( ' toggled', '' );
-		else
+		} else {
 			container.className += ' toggled';
+		}
+	};
+} )();
+
+( function() {
+	var container, button, menu;
+
+	container = document.getElementById( 'dowork-navigation' );
+	if ( ! container ) {
+		return;
+	}
+
+	button = container.getElementsByTagName( 'button' )[0];
+	if ( 'undefined' === typeof button ) {
+		return;
+	}
+
+	menu = container.getElementsByTagName( 'ul' )[0];
+
+	// Hide menu toggle button if menu is empty and return early.
+	if ( 'undefined' === typeof menu ) {
+		button.style.display = 'none';
+		return;
+	}
+
+	if ( -1 === menu.className.indexOf( 'dowork-menu' ) ) {
+		menu.className += ' dowork-menu';
+	}
+
+	button.onclick = function() {
+		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+			container.className = container.className.replace( ' toggled', '' );
+		} else {
+			container.className += ' toggled';
+		}
 	};
 } )();
