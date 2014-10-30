@@ -54,3 +54,84 @@ textarea {
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 100%;
 }
+
+.frm_forms {
+
+	label {
+		display: none;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"],
+	textarea {
+		color: $color__text-input !important;
+		border: 1px solid $color__border-input !important;
+		@include border-radius(0);
+		border-radius: 0 !important;
+		width: 100%;
+	}
+
+	.frm_form_field {
+		margin-bottom: 0.5em;
+		width: 100%;
+
+		input {
+			height: 30px;
+		}
+	}
+
+	.frm_submit {
+		text-align: center;
+
+		input[type=submit] {
+			text-transform 	: uppercase;
+			background 		: $color__bg-submit-button;
+			box-shadow 		: none;
+			color 			: $color__text-submit-button;
+			text-shadow 	: none;
+			border-radius 	: 0;
+			font-size 		: 1.5rem;
+			text-align 		: center;
+			margin 			: 0 auto;
+		}
+	}
+
+	@media only screen and (min-width: $bp__menu-button+1) {
+
+		.frm_first_half {
+			width: 48.5%;
+			float: left;
+			clear: left;
+		}
+
+		.frm_last_half {
+			width: 48.5%;
+			float: right;
+			clear: none;
+		}
+
+		.frm_first_third {
+			float: left;
+			clear: left;
+			width: 31.5%;
+			margin-right: 2.5%;
+		}
+
+		.frm_third {
+			width: 31.5%;
+			float: left;
+			clear: none;
+			margin-right: 2.5%;
+		}
+
+		.frm_last_third {
+			float: right;
+			clear: none;
+			width: 31.5%;
+		}
+	}
+
+}

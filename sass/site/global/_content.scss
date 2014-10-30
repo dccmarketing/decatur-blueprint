@@ -1,13 +1,22 @@
 .site {
-	background 		: url( images/bkgd.jpg );
-	background-size : cover;
+	background 			: url( images/bkgd.jpg );
+	background-size 	: cover;
+	background-repeat	: no-repeat;
+	background-position	: top center;
+	position 			: relative;
+	overflow 			: auto;
 }
 
 
 .site-content {
-	margin-bottom: $size__default-bot-marg;
-	@include grid-row();
-	max-width: $size__max-width;
+	margin 	: 0 0 $size__default-bot-marg 0;
+	width 	: 100%;
+
+	padding-bottom 	: 575px;
+
+	@media only screen and (min-width: $bp__menu-button+1) {
+		padding-bottom: 800px;
+	}
 }
 
 .content-area {
@@ -28,4 +37,70 @@
 	@media only screen and (min-width: $bp__tablet) {
 		@include grid-column(4);
 	}
+}
+
+.entry-footer {
+	display: none;
+}
+
+.content-on-left {
+	background 	: $color__bg-content;
+	width 		: 100%;
+	padding 	: 0;
+
+	.site-main {
+		background 		: $color__bg-sidemenu;
+		overflow 		: auto;
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			width 			: 45%;
+			position 		: absolute;
+			top 			: 0;
+			left 			: 0;
+			height 			: 100%;
+			min-width 		: $size__width-min-side-content;
+		}
+	}
+
+	.entry-header {
+		background 	: $color__bg-menu-button-mobile;
+		height 		: $size__site-headers;
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			background 	: $color__bg-sidebar-header;
+		}
+
+		h1 {
+			display 		: inline-block;
+			font-weight 	: 700;
+			color 			: $color__text-sidemenu-header;
+			line-height 	: 1.8em;
+			text-transform	: lowercase;
+		}
+
+		.header-wrap {
+			text-align : left;
+
+			@media only screen and (max-width: $bp__menu-button) {
+				max-width: 300px;
+			}
+		}
+	}
+
+	.sidemenu-logo {
+		width 	: 105px;
+		padding : 1.5em 0.5em 1em 2em;
+		float 	: left;
+	}
+
+	.entry-content {
+		padding 		: 1.5em;
+		margin-top 		: 0;
+		font-size 		: $font__size-side-menu;
+		overflow 		: auto;
+	}
+}
+
+#wpgmza_map {
+	border 			: 1px solid $color__border-maps;
 }

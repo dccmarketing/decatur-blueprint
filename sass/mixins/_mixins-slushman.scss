@@ -78,6 +78,15 @@
 }
 
 /**
+ * Border radius with the same values for each corner
+ */
+@mixin radius( $pixs ) {
+	-webkit-border-radius 	: $pixs;
+	-moz-border-radius 		: $pixs;
+	border-radius 			: $pixs;
+}
+
+/**
  * Border radius with separate values for each corner
  */
 @mixin radiuscorners( $topleft, $topright, $botleft, $botright ) {

@@ -1,33 +1,26 @@
 .site-footer {
-	@include grid-column(12);
+	float 		: none;
+	display 	: inline-block;
+	color 		: $color__text-footer;
+	width 		: 100%;
+	padding 	: 1em 1em $size__default-bot-marg;
+
+	a,
+	a:visited {
+		color: $color__text-footer;
+	}
 }
 
 .footer-wrap {
-	max-width: $size__max-width;
-	margin: 0 auto;
-}
-
-.footer-left {
-	@include grid-column(12);
-
-	@media only screen and (min-width: $bp__tablet) {
-		@include grid-column(3);
+	@media only screen and (min-width: $bp__menu-button+1) {
+		margin-right: 100px;
 	}
 }
 
 .site-info {
 	text-align: center;
-	@include grid-column(12);
-
+	
 	@media only screen and (min-width: $bp__tablet) {
-		@include grid-column(6);
-	}
-}
-
-.footer-right {
-	@include grid-column(12);
-
-	@media only screen and (min-width: $bp__tablet) {
-		@include grid-column(3);
+		text-align: right;
 	}
 }

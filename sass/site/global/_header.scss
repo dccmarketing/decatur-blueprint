@@ -2,20 +2,34 @@
 	overflow 	: auto;
 	background 	: $color__bg-site-header;
 
-	@media only screen and (mIN-width: $bp__menu-button+1) {
+	@media only screen and (min-width: $bp__menu-button+1) {
 		overflow	: inherit;
-		height 		: 7em;
+		//height 		: $size__site-headersmenu-;
 	}
 }
 
 .header-wrap {
-	padding		: 1em;
 	margin		: 0 auto;
-	max-width	: $size__max-width;	
+	//max-width	: $size__max-width;
+	text-align 	: center;
+	overflow 	: auto;
 }
 
 .site-branding {
-	float: left;
+	width 		: 300px;
+	display		: block;
+	overflow	: auto;
+	text-align	: center;
+	margin		: 0 auto;
+	padding 	: 1em;
+
+	@media only screen and (min-width: $bp__menu-button+1) {
+		float: left;
+	}
+
+	@media only screen and (min-width: $bp__tablet) {
+		margin-left: 100px;
+	}
 }
 
 .site-title {
@@ -26,9 +40,9 @@
 }
 
 .site-description {
-	display 		: inline-block;
+	float	 		: right;
 	font-size 		: $font__size-tagline;
 	text-transform 	: lowercase;
 	color 			: $color__text-site-desc;
-	padding 		: 0 0.4em;
+	clear 			: none;
 }
