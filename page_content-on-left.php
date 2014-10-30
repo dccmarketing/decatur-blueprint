@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area content-on-left">
+	<div id="primary" class="content-area content-on-left slidein">
 		<main id="main" class="site-main" role="main"><?php
 
 			while ( have_posts() ) : the_post();
@@ -19,7 +19,7 @@ get_header(); ?>
 						<div class="header-wrap">
 							<div class="sidemenu-logo"><?php
 
-								echo get_page_icon( get_the_title() );
+								echo get_page_icon( get_the_ID() );
 
 							?></div><?php
 

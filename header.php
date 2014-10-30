@@ -39,9 +39,5 @@ wp_head();
 			get_template_part( 'menu', 'social' );
 
 		?></div><!-- .header_wrap -->
-	</header><!-- #masthead --><?php
-
-	get_template_part( 'menu', 'studioblue' );
-	get_template_part( 'menu', 'plansandportals' );
-
-	?><div id="content" class="site-content">
+	</header><!-- #masthead -->
+	<div id="content" class="site-content">

@@ -29,7 +29,7 @@ add_action( 'customize_register', 'decaturblueprint_customize_register' );
  */
 function decaturblueprint_customize_preview_js() {
 
-	wp_enqueue_script( 'decaturblueprint_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script( 'decaturblueprint_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), '20130508', true );
 
 } // decaturblueprint_customize_preview_js()
 add_action( 'customize_preview_init', 'decaturblueprint_customize_preview_js' );

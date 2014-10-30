@@ -112,7 +112,7 @@
 		}
 	}
 	a {
-		padding 		: 0.25em 0;
+		padding 		: 0.25em 0.5em 0.25em 0;
 		display			: block;
 		text-decoration	: none;
 		color 			: $color__text-menu-mobile;
@@ -195,8 +195,13 @@
 			margin-top 	: 92px;
 			position 	: absolute;
 			right 		: 1em;
-			width 		: 425px;
+			width 		: 450px;
 			font-size 	: $font__size-main-menu;
+			z-index 	: 9999;
+
+			.page-template-default & {
+				background: $color__bg-menu-on-content;
+			}
 		}
 
 		@media only screen and (min-width: $bp__laptop) {
@@ -246,7 +251,7 @@
 	}	
 
 	@media only screen and (min-width: $bp__laptop) {
-		margin-right: 100px;
+		margin-right: 115px;
 	}
 }
 

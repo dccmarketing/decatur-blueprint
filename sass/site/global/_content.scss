@@ -7,100 +7,182 @@
 	overflow 			: auto;
 }
 
-
 .site-content {
-	margin 	: 0 0 $size__default-bot-marg 0;
-	width 	: 100%;
-
-	padding-bottom 	: 575px;
+	margin 		: 0 0 $size__default-bot-marg 0;
+	width 		: 100%;
+	min-height 	: 575px;
 
 	@media only screen and (min-width: $bp__menu-button+1) {
-		padding-bottom: 800px;
+		min-height: 800px;
 	}
 }
 
 .content-area {
-	@include grid-column(12);
-
-	@media only screen and (min-width: $bp__tablet) {
-		@include grid-column(8);
-
-		&.sidebar-content {
-			float: right;	
-		}
-	}
-}
-
-.widget-area {
-	@include grid-column(12);
-
-	@media only screen and (min-width: $bp__tablet) {
-		@include grid-column(4);
-	}
+	width: 100%;
 }
 
 .entry-footer {
 	display: none;
 }
 
-.content-on-left {
-	background 	: $color__bg-content;
-	width 		: 100%;
-	padding 	: 0;
+.sidemenu-logo {
+	width 	: 105px;
+	padding : 1.5em 0.5em 1em 2em;
+	float 	: left;
+}
 
-	.site-main {
-		background 		: $color__bg-sidemenu;
-		overflow 		: auto;
-
-		@media only screen and (min-width: $bp__menu-button+1) {
-			width 			: 45%;
-			position 		: absolute;
-			top 			: 0;
-			left 			: 0;
-			height 			: 100%;
-			min-width 		: $size__width-min-side-content;
-		}
-	}
-
-	.entry-header {
-		background 	: $color__bg-menu-button-mobile;
-		height 		: $size__site-headers;
-
-		@media only screen and (min-width: $bp__menu-button+1) {
-			background 	: $color__bg-sidebar-header;
-		}
-
-		h1 {
-			display 		: inline-block;
-			font-weight 	: 700;
-			color 			: $color__text-sidemenu-header;
-			line-height 	: 1.8em;
-			text-transform	: lowercase;
-		}
-
-		.header-wrap {
-			text-align : left;
-
-			@media only screen and (max-width: $bp__menu-button) {
-				max-width: 300px;
-			}
-		}
-	}
-
-	.sidemenu-logo {
-		width 	: 105px;
-		padding : 1.5em 0.5em 1em 2em;
-		float 	: left;
-	}
-
-	.entry-content {
-		padding 		: 1.5em;
-		margin-top 		: 0;
-		font-size 		: $font__size-side-menu;
-		overflow 		: auto;
-	}
+.entry-content {
+	padding 		: 1.5em;
+	margin-top 		: 0;
+	font-size 		: $font__size-side-menu;
+	overflow 		: auto;
 }
 
 #wpgmza_map {
 	border 			: 1px solid $color__border-maps;
+}
+
+.slidein {
+	animation-duration 			: 0.5s;
+	transition-timing-function 	: ease-in;
+	animation-fill-mode 		: both;
+	animation-name 				: slideInLeft;
+
+	& .is-exiting  {
+		animation-direction 	: alternate-reverse;
+	}
+}
+
+.slidein-content {
+	@extend .slidein;
+
+	animation-duration	: 1s;
+	animation-delay 	: 0.5s;
+}
+
+.sidebar-content {
+	article.hentry {
+		width: 100%;
+		color: $color__text-content;
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			float: right;
+			width: 70%;
+			background: $color__bg-content;
+		}
+	}
+}
+
+/**
+ * Sidebar Menu
+ */
+
+.menu-sidebar {
+	width: 100%;
+	background 		: $color__bg-sidemenu;
+	overflow 		: auto;
+
+	@media only screen and (min-width: $bp__menu-button+1) {
+		position 		: absolute;
+		top 			: 0;
+		left 			: 0;
+		height 			: 100%;
+		min-width 		: $size__width-min-side-content;
+		width 			: 30%;
+		z-index 		: 1;
+
+		& .is-exiting  {
+			animation-direction 	: alternate-reverse;
+		}
+	}
+
+	ul {
+		list-style 	: none;
+		margin 		: 0;
+	}
+
+	li {
+		margin-bottom: $size__default-bot-marg;
+
+		li {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		color 			: $color__text-sidemenu-items;
+		text-transform	: lowercase;
+
+		&:hover {
+			color: $color__text-sidemenu-items-hover;
+		}
+	}
+
+	.menu-item-has-children a {
+		font-weight: 400;
+	}
+
+	.sub-menu a {
+		font-weight: 700;
+	}
+}
+
+.menu-header {
+	background 	: $color__bg-menu-button-mobile;
+	height 		: $size__site-headers;
+
+	@media only screen and (min-width: $bp__menu-button+1) {
+		background 	: $color__bg-sidebar-header;
+	}
+
+	h1 {
+		display 		: inline-block;
+		font-weight 	: 700;
+		color 			: $color__text-sidemenu-header;
+		line-height 	: 2.1em;
+		text-transform	: lowercase;
+	}
+
+	.header-wrap {
+		text-align : left;
+
+		@media only screen and (max-width: $bp__menu-button) {
+			max-width: 300px;
+		}
+	}
+}
+
+.sidebar-menu-content {
+	padding 		: 1.5em;
+	margin-top 		: 0;
+	font-size 		: $font__size-side-menu;
+	overflow 		: auto;
+}
+
+.sidemenu-logo {
+	width 	: 105px;
+	padding : 1.5em 0.5em 1em 2em;
+	float 	: left;
+}
+
+/**
+ * Content on Left Template
+ */
+.content-on-left {
+	@extend .menu-sidebar;
+
+	@media only screen and (min-width: $bp__menu-button+1) {
+		width: 45%;
+	}
+
+	.site-main {
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			width: 100%;
+		}
+	}
+
+	.entry-header {
+		@extend .menu-header;
+	}
 }
