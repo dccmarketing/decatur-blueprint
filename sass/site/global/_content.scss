@@ -42,21 +42,35 @@
 	border 			: 1px solid $color__border-maps;
 }
 
+@keyframes slideInLeftContent {
+	0% {
+		transform: translateX(-200%);
+		visibility: visible;
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
 .slidein {
 	animation-duration 			: 0.5s;
 	transition-timing-function 	: ease-in;
 	animation-fill-mode 		: both;
 	animation-name 				: slideInLeft;
-
+	
 	& .is-exiting  {
 		animation-direction 	: alternate-reverse;
 	}
 }
 
 .slidein-content {
-	@extend .slidein;
+	@animation-duration 		: 0.5s;
+	transition-timing-function 	: ease-in;
+	animation-fill-mode 		: both;
+	animation-name 				: slideInLeftContent;
 
-	animation-duration	: 1s;
+	animation-duration	: 0.5s;
 	animation-delay 	: 0.5s;
 }
 

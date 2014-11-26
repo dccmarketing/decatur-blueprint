@@ -4,10 +4,7 @@ input[type="radio"] {
 }
 
 input[type="search"] {
-	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
-	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-	-moz-box-sizing:    content-box;
-	box-sizing:         content-box;
+	box-sizing: content-box;
 }
 
 input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
@@ -26,8 +23,8 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-	color: $color__text-input;
-	border: 1px solid $color__border-input;
+	color 	: $color__text-input;
+	border 	: 1px solid $color__border-input;
 	@include border-radius(3px);
 }
 
@@ -49,10 +46,10 @@ input[type="search"] {
 }
 
 textarea {
-	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding-left: 3px;
-	vertical-align: top; /* Improves readability and alignment in all browsers */
-	width: 100%;
+	overflow 		: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
+	padding-left 	: 3px;
+	vertical-align 	: top; /* Improves readability and alignment in all browsers */
+	width 			: 100%;
 }
 
 .frm_forms {
@@ -67,11 +64,11 @@ textarea {
 	input[type="password"],
 	input[type="search"],
 	textarea {
-		color: $color__text-input !important;
-		border: 1px solid $color__border-input !important;
+		color 			: $color__text-input !important;
+		border 			: 1px solid $color__border-input !important;
 		@include border-radius(0);
-		border-radius: 0 !important;
-		width: 100%;
+		border-radius 	: 0 !important;
+		width 			: 100%;
 	}
 
 	.frm_form_field {
@@ -102,9 +99,10 @@ textarea {
 	@media only screen and (min-width: $bp__menu-button+1) {
 
 		.frm_first_half {
-			width: 48.5%;
-			float: left;
-			clear: left;
+			width 		: 48.5%;
+			float 		: left;
+			clear 		: left;
+			margin-right: 3%;
 		}
 
 		.frm_last_half {
@@ -114,16 +112,16 @@ textarea {
 		}
 
 		.frm_first_third {
-			float: left;
-			clear: left;
-			width: 31.5%;
+			float 		: left;
+			clear 		: left;
+			width 		: 31.5%;
 			margin-right: 2.5%;
 		}
 
 		.frm_third {
-			width: 31.5%;
-			float: left;
-			clear: none;
+			width 		: 31.5%;
+			float 		: left;
+			clear 		: none;
 			margin-right: 2.5%;
 		}
 
@@ -133,5 +131,4 @@ textarea {
 			width: 31.5%;
 		}
 	}
-
 }

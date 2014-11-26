@@ -1,14 +1,14 @@
 ;(function($) {
 	'use strict';
-	var content = $('#primary').smoothState({
-		// Runs when a link has been activated
+	var $body    = $('html, body'),
+		content = $('#primary').smoothState({
 		onStart: {
-			duration: 250, // Duration of our animation
+			duration: 500, // Duration of our animation
 			render: function (url, $container) {
-				// toggleAnimationClass() is a public method
-				// for restarting css animations with a class
-				content.toggleAnimationClass('is-exiting');
+				content.toggleAnimationClass('is-exiting'); // restarts css animations with class
 			}
-		}
+		},
+		prefetch: true,
+		pageCacheSize: 20
 	}).data('smoothState'); // makes public methods available
 })(jQuery);

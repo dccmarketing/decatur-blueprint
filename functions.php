@@ -170,9 +170,8 @@ function load_fonts() {
 add_action( 'wp_print_styles', 'load_fonts' );
 
 /**
- * Add Extra Code to Primary Menu
+ * Add Extra Code to a Menu
  *
- * 
  * @author Bill Erickson
  * @link http://www.billerickson.net/customizing-wordpress-menus/
  *
@@ -220,6 +219,13 @@ function get_page_icon( $ID ) {
 
 } // get_page_icon()
 
+/**
+ * Prints whatever in a nice, readable format
+ * 
+ * @param 	mixed 		$input 		Something to pretty print, usually an array or object
+ * 
+ * @return 	mixed 					The input between pre tags and in print_r()
+ */
 function pretty( $input ) {
 
 	echo '<pre>'; print_r( $input ); echo '</pre>';
