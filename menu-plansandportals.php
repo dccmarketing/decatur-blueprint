@@ -1,4 +1,12 @@
-<?php if ( has_nav_menu( 'plansandportals' ) ) {
+<div class="menu_page_content"><?php
+
+	$page 		= get_page_by_title( 'Plans & Portals' );
+	$post 		= get_post( $page->ID );
+	$content 	= apply_filters( 'the_content', $post->post_content );
+
+	echo $content; 
+
+?></div><?php if ( has_nav_menu( 'plansandportals' ) ) {
 					
 	$menu['theme_location']		= 'plansandportals';
 	$menu['container'] 			= 'div';
