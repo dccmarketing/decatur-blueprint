@@ -1,4 +1,6 @@
-<?php if ( has_nav_menu( 'studioblue' ) ) {
+<?php 
+
+if ( has_nav_menu( 'studioblue' ) ) {
 						
 	$menu['theme_location']		= 'studioblue';
 	$menu['container'] 			= 'div';

@@ -45,6 +45,15 @@ if ( empty( $parents ) ) {
 
 		//pretty( $menu );
 
+		?><div class="menu_page_content"><?php
+
+			$post 		= get_post( get_the_ID() );
+			$content 	= apply_filters( 'the_content', $post->post_content );
+
+			echo $content; 
+
+		?></div><?php
+
 		get_template_part( 'menu', $menu );
 		
 	?></div><!-- .sidebar-menu-content -->
