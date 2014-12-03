@@ -39,6 +39,7 @@ function decaturblueprint_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'db-gallery', 600, 450 );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -74,6 +75,8 @@ function decaturblueprint_setup() {
 endif; // decaturblueprint_setup
 add_action( 'after_setup_theme', 'decaturblueprint_setup' );
 
+
+
 /**
  * Register widget area.
  *
@@ -102,7 +105,7 @@ function decaturblueprint_scripts() {
 
 	wp_enqueue_script( 'decatur-blueprint-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), '20130115', true );
 
-	wp_enqueue_script( 'decatur-blueprint-smooth-state', get_template_directory_uri() . '/js/smoothState.min.js', array( 'jquery' ) );
+	//wp_enqueue_script( 'smoothState', get_template_directory_uri() . '/js/smoothState.min.js', array( 'jquery' ), null, TRUE );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -113,6 +116,8 @@ function decaturblueprint_scripts() {
 		wp_enqueue_script( 'decatur-blueprint-bg-video', get_template_directory_uri() . '/js/html5ext.min.js' );
 
 	}
+
+	wp_enqueue_script( 'decatur-blueprint-public', get_template_directory_uri() . '/js/public.min.js', array( 'jquery' ), null, TRUE );
 }
 add_action( 'wp_enqueue_scripts', 'decaturblueprint_scripts' );
 
@@ -234,3 +239,34 @@ function pretty( $input ) {
 
 
 
+function gallery_override( $output = '', $atts ) {
+
+	$return = '<div class="gallery_list"><ul>';
+	$ids 	= explode( ',', $atts['ids'] );
+
+	foreach ( $ids as $id ) {
+
+		$pic 	= wp_prepare_attachment_for_js( $id );
+		$return .= '<li class="image_for_viewbox" data-image="' . $pic['url'] . '"';
+		$items 	= array( 'caption', 'title' );
+
+		foreach ( $items as $item ) {
+
+			$return .= 'data-' . $item . '="' . $pic[$item] . '" ';
+
+		} // foreach
+
+		$return .= '>' . $pic['title'] . '</li>';
+
+	} // foreach
+
+	$first = wp_prepare_attachment_for_js( $ids[0] );
+
+	$return .= '</ul></div>';
+	$return .= '<div class="view_wrap"><img class="viewbox" src="' . $first['url'] . '" /><h3 class="view_title">' . $first['title'] . '</h3><div class="view_caption">' . $first['caption'] . '</div></div><!-- .view_wrap -->';
+
+	return $return;
+
+} // gallery_override()
+
+add_filter( 'post_gallery', 'gallery_override', 10, 2 );

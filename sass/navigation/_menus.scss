@@ -129,7 +129,7 @@
 			width 		: 100px;
 
 			@media only screen and (max-width: $bp__menu-button) {
-				margin-right: 1em;
+				margin-right: 0.75em;
 			}
 
 			path {
@@ -139,7 +139,7 @@
 
 		.menu-label {
 			line-height		: 3em;
-			margin-left 	: 1em;
+			margin-left 	: 0.75em;
 			font-size 		: $font__size-work-menu;
 
 			@media only screen and (min-width: $bp__menu-button+1) {

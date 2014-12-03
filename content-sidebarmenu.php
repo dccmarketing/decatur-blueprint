@@ -18,9 +18,16 @@ if ( empty( $parents ) ) {
 
 }
 
+$class = '';
+
+if ( is_page_template( 'page_left-sidebar-menu.php' ) ) {
+
+	$class = 'slidein';
+
+}
 
 ?>
-<div class="menu-sidebar slidein">
+<div class="menu-sidebar <?php echo $class; ?>">
 	<header class="menu-header">
 		<div class="header-wrap">
 			<div class="sidemenu-logo"><?php

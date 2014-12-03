@@ -25,12 +25,6 @@
 	display: none;
 }
 
-.sidemenu-logo {
-	width 	: 105px;
-	padding : 1.5em 0.5em 1em 2em;
-	float 	: left;
-}
-
 .entry-content {
 	padding 		: 1.5em;
 	margin-top 		: 0;
@@ -65,24 +59,20 @@
 }
 
 .slidein-content {
-	@animation-duration 		: 0.5s;
+	animation-duration 			: 0.5s;
 	transition-timing-function 	: ease-in;
 	animation-fill-mode 		: both;
 	animation-name 				: slideInLeftContent;
-
-	animation-duration	: 0.5s;
-	animation-delay 	: 0.5s;
 }
 
 .sidebar-content {
 	article.hentry {
-		width: 100%;
-		color: $color__text-content;
+		width 		: 100%;
+		color 		: $color__text-content;
+		background 	: $color__bg-content;
 
 		@media only screen and (min-width: $bp__menu-button+1) {
-			float: right;
-			width: 70%;
-			background: $color__bg-content;
+			padding-left: $size__width-min-side-content;
 		}
 	}
 }
@@ -101,8 +91,7 @@
 		top 			: 0;
 		left 			: 0;
 		height 			: 100%;
-		min-width 		: $size__width-min-side-content;
-		width 			: 30%;
+		width 			: $size__width-min-side-content;
 		z-index 		: 1;
 
 		& .is-exiting  {
@@ -155,6 +144,7 @@
 		color 			: $color__text-sidemenu-header;
 		line-height 	: 2.1em;
 		text-transform	: lowercase;
+		margin-left 	: 0.25em;
 	}
 
 	.header-wrap {
@@ -174,9 +164,13 @@
 }
 
 .sidemenu-logo {
-	width 	: 105px;
-	padding : 1.5em 0.5em 1em 2em;
+	width 	: 75px;
+	padding : 1.25em 0 0;
 	float 	: left;
+
+	@media only screen and (min-width: $bp__menu-button+1) {
+		margin-left: 2em;
+	}
 }
 
 /**
