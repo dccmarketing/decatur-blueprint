@@ -105,7 +105,9 @@
 	}
 
 	li {
-		margin-bottom: $size__default-bot-marg;
+		margin-bottom	: $size__default-bot-marg;
+		text-indent 	: -1em;
+		padding-left 	: 0.5em;
 
 		li {
 			margin-bottom: 0;
@@ -194,3 +196,57 @@
 		@extend .menu-header;
 	}
 }
+
+
+/**
+ * Staff Directory
+ */
+
+.stafflist {
+}
+
+.staffmember {
+	list-style 		: none;
+	display 		: inline-block;
+	vertical-align 	: top;
+}
+
+
+.staffpic {
+	height 				: $size__staff-pic;
+	width 				: $size__staff-pic;
+	background-size 	: $size__staff-pic $size__staff-pic;
+	background-position : center center;
+	background-repeat 	: no-repeat;
+	border-radius 		: 50%;
+	border 				: 2px solid $color__border-staff-link;
+}
+
+.staffname {
+	text-align: center;
+}
+
+.singlestaff {
+	color: $color__text-content;
+
+	.staffpic {
+		height 				: $size__staff-pic-single;
+		width 				: $size__staff-pic-single;
+		background-size 	: $size__staff-pic-single $size__staff-pic-single;
+	}
+
+	.staffname {
+		text-align: left;
+	}
+}
+
+.staffsingle {
+	width 		: 100%;
+	color 		: $color__text-content;
+	background 	: $color__bg-content;
+
+	@media only screen and (min-width: $bp__menu-button+1) {
+		padding-left: $size__padding-staff-single;
+	}
+}
+

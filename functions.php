@@ -270,3 +270,139 @@ function gallery_override( $output = '', $atts ) {
 } // gallery_override()
 
 add_filter( 'post_gallery', 'gallery_override', 10, 2 );
+
+
+
+/**
+ * Returns the URL of the featured image
+ * 
+ * @param 	int 		$postID 		The post ID
+ * @param 	string 		$size 			The image size to return
+ * 
+ * @return 	string | bool 				The URL of the featured image, otherwise FALSE
+ */
+function get_thumbnail_url( $postID, $size = 'thumbnail' ) {
+
+	if ( empty( $postID ) ) { return FALSE; }
+
+	$thumb_id = get_post_thumbnail_id( $postID );
+
+	if ( empty( $thumb_id ) ) { return FALSE; }
+
+	$thumb_array = wp_get_attachment_image_src( $thumb_id, $size, true );
+
+	if ( empty( $thumb_array ) ) { return FALSE; }
+	
+	return $thumb_array[0];
+
+} // get_thumbnail_url()
+
+
+
+require( 'toolkit/make_cpt.php' );
+
+class DecaturBlue_Staff extends Slushman_Make_Custom_Post_Type {
+
+	function __construct() {
+
+		$reqs['i18n'] 		= 'slushman';
+		$reqs['plural'] 	= 'Staff';
+		$reqs['post_type'] 	= 'Staff';
+		$reqs['single'] 	= 'Staff';
+
+		$args['menu_icon'] 	= 'dashicons-groups';
+
+		$this->setup( $reqs, $args );
+
+	} // __construct()
+
+}
+
+$cpt = new DecaturBlue_Staff();
+
+
+
+/**
+ * Performs a WordPress Query for posts contained Simple Fields data
+ *
+ * @uses 	WP_Query()
+ *
+ * @return  object 				A query object containing the results of the query
+ */
+function decaturblue_get_staff() {
+
+	$args['order']			= 'ASC';
+	$args['orderby']		= 'meta_value';
+	$args['posts_per_page'] = -1;
+	$args['post_type'] 		= 'Staff';
+	
+	$query = new WP_Query( $args );
+
+	return $query;
+
+} // End of decaturblue_get_staff()
+
+/**
+ * [decaturblue_staff_list description]
+ * @param  string $atts [description]
+ * @return [type]       [description]
+ */
+/*function decaturblue_staff_list( $atts = '' ) {
+
+	ob_start();
+
+	get_staff_list();
+
+	$output = ob_get_contents();
+
+    ob_end_clean();
+
+    return $output;
+
+} // decaturblue_staff_list()*/
+
+/**
+ * [get_staff_list description]
+ * @return [type] [description]
+ */
+function decaturblue_staff_list() {
+
+	$stafflist 	= decaturblue_get_staff();
+	$output 	= '';
+
+	if ( 1 > $stafflist->found_posts ) { return; }
+
+	//pretty( $stafflist );
+
+	$output .= '<ul class="stafflist">';
+
+	foreach ( $stafflist->posts as $employee ) {
+
+		$picurl = get_thumbnail_url( $employee->ID );
+		$custom = get_post_meta( $employee->ID );
+
+		$output .= '<li class="staffmember">';
+		$output .= '<a href="' . get_permalink( $employee->ID ) . '">';
+
+		$output .= '<div class="staffpic" style="background-image:url(' . $picurl . ');"></div>';
+		$output .= '<div class="staffname">' . $employee->post_title . '</div>';
+		$output .= '</a></li>';
+
+
+/*		$output .= '<div class="stafftitle">' . $custom['position'][0] . '</div>';
+		$output .= '<div class="staffbio">' . wpautop( $employee->post_content ) . '</div>';
+		$output .= '<div class="staffphone"><a href="tel:' . $custom['phone_number'][0] . '">' . $custom['phone_number'][0] . '</a></div>';
+		$output .= '<div class="staffemail"><a href="mailto:' . $custom['email_address'][0] . '">' . $custom['email_address'][0] . '</a></div>';*/
+
+	} // foreach
+
+	$output .= '</ul><!-- .stafflist -->';
+
+	return $output;
+
+} // get_staff_list()
+
+
+
+
+

@@ -30,12 +30,13 @@ get_header(); ?>
 					<div class="entry-content"><?php
 						
 						the_content();
+
+						if ( is_page( 'Our Story' ) ) {
+
+							echo decaturblue_staff_list();
+
+						}
 						
-						wp_link_pages( array(
-							'before' => '<div class="page-links">' . __( 'Pages:', 'decatur-blueprint' ),
-							'after'  => '</div>',
-						) );
-					
 					?></div><!-- .entry-content -->
 
 					<footer class="entry-footer"><?php

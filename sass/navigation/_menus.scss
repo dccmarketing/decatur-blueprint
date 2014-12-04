@@ -230,7 +230,8 @@
 	background		: $color__bg-menu-button-mobile;
 	color 			: $color__text-menu-button-mobile;
 
-	&:hover {
+	&:hover,
+	&Lfocus {
 		border		: none;
 		box-shadow	: none;
 	}
@@ -242,6 +243,8 @@
 }
 
 .menu-toggle {
+	outline: 0;
+
 	@media only screen and (min-width: $bp__menu-button+1) {
 		background 	: $color__bg-menu-button;
 		color 		: $color__text-menu-button;
