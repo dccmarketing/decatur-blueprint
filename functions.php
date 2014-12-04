@@ -343,25 +343,6 @@ function decaturblue_get_staff() {
 } // End of decaturblue_get_staff()
 
 /**
- * [decaturblue_staff_list description]
- * @param  string $atts [description]
- * @return [type]       [description]
- */
-/*function decaturblue_staff_list( $atts = '' ) {
-
-	ob_start();
-
-	get_staff_list();
-
-	$output = ob_get_contents();
-
-    ob_end_clean();
-
-    return $output;
-
-} // decaturblue_staff_list()*/
-
-/**
  * [get_staff_list description]
  * @return [type] [description]
  */
@@ -384,7 +365,16 @@ function decaturblue_staff_list() {
 		$output .= '<li class="staffmember">';
 		$output .= '<a href="' . get_permalink( $employee->ID ) . '">';
 
-		$output .= '<div class="staffpic" style="background-image:url(' . $picurl . ');"></div>';
+		if ( ! empty( $picurl ) ) {
+
+			$output .= '<div class="staffpic" style="background-image:url(' . $picurl . ');"></div>';
+
+		} else {
+
+			$output .= '<div class="emptypic"></div>';
+
+		}
+
 		$output .= '<div class="staffname">' . $employee->post_title . '</div>';
 		$output .= '</a></li>';
 

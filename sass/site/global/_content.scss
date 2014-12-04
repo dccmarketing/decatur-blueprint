@@ -222,6 +222,11 @@
 	border 				: 2px solid $color__border-staff-link;
 }
 
+.emptypic {
+	height 				: $size__staff-pic;
+	width 				: $size__staff-pic;	
+}
+
 .staffname {
 	text-align: center;
 }
