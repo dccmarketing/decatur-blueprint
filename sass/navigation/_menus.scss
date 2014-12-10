@@ -127,9 +127,15 @@
 		svg {
 			float 		: right;
 			width 		: 100px;
+			height 		: 100px;
+			
 
 			@media only screen and (max-width: $bp__menu-button) {
 				margin-right: 0.75em;
+			}
+
+			@media only screen and (min-width: $bp__menu-button+1) {
+				margin-left : 0.25em;
 			}
 
 			path {
@@ -137,7 +143,7 @@
 			}
 		}
 
-		.menu-label {
+		.menu-icon-label {
 			line-height		: 3em;
 			margin-left 	: 0.75em;
 			font-size 		: $font__size-work-menu;
@@ -151,7 +157,7 @@
 		@media only screen and (min-width: $bp__menu-button+1) {
 			color: $color__text-menu;
 
-			.menu-label {
+			.menu-icon-label {
 				margin-right	: 0.25em;
 			}
 		}
@@ -199,7 +205,8 @@
 			font-size 	: $font__size-main-menu;
 			z-index 	: 9999;
 
-			.page-template-default & {
+			.page-template-default &,
+			.single-staff & {
 				background: $color__bg-menu-on-content;
 			}
 		}
@@ -243,7 +250,8 @@
 }
 
 .menu-toggle {
-	outline: 0;
+	outline : 0;
+	width 	: 150px;
 
 	@media only screen and (min-width: $bp__menu-button+1) {
 		background 	: $color__bg-menu-button;
@@ -285,6 +293,11 @@
 }
 
 .hamburger {
-	font-family : FontAwesome;
-	margin-left : 0.5em;
+	margin-left : 0.25em;
+	height 		: 20px;
+	width 		: 20px;
+
+	path {
+		fill: $color__svg-hamburger;
+	}
 }

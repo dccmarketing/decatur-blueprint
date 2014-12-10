@@ -4,7 +4,11 @@
 	$post 		= get_post( $page->ID );
 	$content 	= apply_filters( 'the_content', $post->post_content );
 
-	echo $content; 
+	if ( ! empty( $post->post_content ) ) {
+
+		echo $content; 
+
+	}
 
 ?></div><?php if ( has_nav_menu( 'dowork' ) ) {
 					

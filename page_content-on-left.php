@@ -19,7 +19,7 @@ get_header(); ?>
 						<div class="header-wrap">
 							<div class="sidemenu-logo"><?php
 
-								echo get_page_icon( get_the_ID() );
+								echo decaturblue_get_svg_by_pageID( get_the_ID() );
 
 							?></div><?php
 

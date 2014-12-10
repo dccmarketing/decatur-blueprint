@@ -32,7 +32,7 @@ if ( is_page_template( 'page_left-sidebar-menu.php' ) ) {
 		<div class="header-wrap">
 			<div class="sidemenu-logo"><?php
 
-				echo get_page_icon( $id );
+				echo decaturblue_get_svg_by_pageID( $id );
 
 			?></div>
 			<h1><?php
