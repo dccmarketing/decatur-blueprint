@@ -35,7 +35,7 @@
 
 	}
 
-?></div><?php if ( has_nav_menu( 'aecdigitalservices' ) ) {
+?></div><a name="aeclink"><?php if ( has_nav_menu( 'aecdigitalservices' ) ) {
 					
 	$menu['theme_location']		= 'aecdigitalservices';
 	$menu['container'] 			= 'div';
@@ -48,4 +48,4 @@
 
 	wp_nav_menu( $menu );
 
-} ?>
+} ?></a>

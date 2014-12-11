@@ -265,7 +265,7 @@ function decaturblue_get_svg_by_pageID( $ID ) {
 	switch( $page->post_title ) {
 
 		case 'The Diggs' 		: $output .= decaturblue_get_svg( 'diggs' ); break;
-		case 'Studio Blue' 		: $output .= decaturblue_get_svg( 'studio' ); break;
+		case 'What We Do' 		: $output .= decaturblue_get_svg( 'studio' ); break;
 		case 'Plans & Portals' 	: $output .= decaturblue_get_svg( 'plansandportals' ); break;
 		case 'Our Story' 		: $output .= decaturblue_get_svg( 'story' ); break;
 		case 'Message Us' 		: $output .= decaturblue_get_svg( 'message' ); break;
