@@ -120,7 +120,8 @@ function decaturblueprint_scripts() {
 	}
 
 	wp_enqueue_script( 'decatur-blueprint-public', get_template_directory_uri() . '/js/public.min.js', array( 'jquery' ), null, TRUE );
-}
+
+} // decaturblueprint_scripts()
 add_action( 'wp_enqueue_scripts', 'decaturblueprint_scripts' );
 
 /**
@@ -155,7 +156,9 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 function custom_site_info() {
 
-	printf( __( '<div class="copyright">&copy %1$s <a href="%2$s" title="Login">%3$s</a></a></div>', 'decatur-blueprint' ), date( 'Y' ), get_admin_url(), get_bloginfo( 'name' ) );
+	//printf( __( '<div class="copyright">&copy %1$s <a href="%2$s" title="Login">%3$s</a></a></div>', 'decatur-blueprint' ), date( 'Y' ), get_admin_url(), get_bloginfo( 'name' ) ); // with admin link
+
+	printf( __( '<div class="copyright">&copy %1$s %2$s</div>', 'decatur-blueprint' ), date( 'Y' ), get_bloginfo( 'name' ) ); // without admin link
 
 	echo '<div class="address"><address>230 West Wood &middot; Decatur, IL 62523</address> &middot; <a href="tel:2174237589">217-423-7589</a></div>';
 	echo '<div class="credits">' . __( 'Site designed and developed by', 'decatur-blueprint' ) . ' <a href="http://dccmarketing.com" title="DCC Marketing">DCC Marketing</a></div>';
@@ -171,7 +174,7 @@ add_action( 'site_info', 'custom_site_info' );
 function load_fonts() {
 
 	wp_register_style( 'et-googleFonts', 'http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' );
-	wp_enqueue_style( 'et-googleFonts' );	
+	wp_enqueue_style( 'et-googleFonts' );
 
 } // load_fonts()
 add_action( 'wp_print_styles', 'load_fonts' );
@@ -186,7 +189,7 @@ add_action( 'wp_print_styles', 'load_fonts' );
  * @param 	object 		$item				//
  * @param 	int 		$depth 				//
  * @param 	array 		$args 				//
- * 
+ *
  * @return 	string 							modified menu
  */
 function decaturblue_menu_svgs( $item_output, $item, $depth, $args ) {
@@ -203,7 +206,7 @@ function decaturblue_menu_svgs( $item_output, $item, $depth, $args ) {
 
 	} else {
 
-		if ( $host !== parse_url( get_site_url(), PHP_URL_HOST ) ) { 
+		if ( $host !== parse_url( get_site_url(), PHP_URL_HOST ) ) {
 
 			$output .= decaturblue_get_svg_by_url( $item->url );
 
@@ -231,7 +234,7 @@ add_filter( 'walker_nav_menu_start_el', 'decaturblue_menu_svgs', 10, 4 );
 
 /**
  * Gets the appropriate SVG based on a menu item class
- * 
+ *
  * @param  [type] $url [description]
  * @return [type]      [description]
  */
@@ -253,7 +256,7 @@ function decaturblue_get_svg_by_class( $classes ) {
 
 /**
  * Gets the appropriate SVG based on a URL
- * 
+ *
  * @param  [type] $url [description]
  * @return [type]      [description]
  */
@@ -279,7 +282,7 @@ function decaturblue_get_svg_by_pageID( $ID ) {
 
 /**
  * Gets the appropriate SVG based on a URL
- * 
+ *
  * @param  [type] $url [description]
  * @return [type]      [description]
  */
@@ -318,6 +321,7 @@ function decaturblue_get_svg( $svg ) {
 		case 'hamburger' 		: $output .= '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" class="hamburger"><path d="M97.1 21.3c0 2.1-1.8 3.9-3.9 3.9H6.8c-2.1 0-3.9-1.8-3.9-3.9v-7.9c0-2.1 1.8-3.9 3.9-3.9h86.4c2.1 0 3.9 1.8 3.9 3.9V21.3zM97.1 52.8c0 2.1-1.8 3.9-3.9 3.9H6.8c-2.1 0-3.9-1.8-3.9-3.9v-7.9c0-2.1 1.8-3.9 3.9-3.9h86.4c2.1 0 3.9 1.8 3.9 3.9V52.8zM97.1 84.2c0 2.1-1.8 3.9-3.9 3.9H6.8c-2.1 0-3.9-1.8-3.9-3.9v-7.9c0-2.1 1.8-3.9 3.9-3.9h86.4c2.1 0 3.9 1.8 3.9 3.9V84.2z"/></svg>'; break;
 		case 'instagram' 		: $output .= '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" class="instagram"><path d="M97.1 84.9c0 6.6-5.5 12.1-12.1 12.1H15C8.3 97 2.9 91.5 2.9 84.9V14.8C2.9 8.1 8.3 2.7 15 2.7h70.1c6.6 0 12.1 5.5 12.1 12.1V84.9zM86.5 42.6h-8.3c0.8 2.5 1.2 5.3 1.2 8C79.4 66.3 66.3 79 50.1 79c-16.1 0-29.3-12.7-29.3-28.4 0-2.8 0.4-5.5 1.2-8h-8.7v39.8c0 2.1 1.7 3.7 3.7 3.7h65.6c2.1 0 3.7-1.7 3.7-3.7V42.6zM50.1 31.3c-10.4 0-18.9 8.2-18.9 18.4S39.6 68 50.1 68c10.5 0 19-8.2 19-18.4S60.6 31.3 50.1 31.3zM86.5 17.4c0-2.3-1.9-4.2-4.2-4.2H71.5c-2.3 0-4.2 1.9-4.2 4.2v10.1c0 2.3 1.9 4.2 4.2 4.2h10.7c2.3 0 4.2-1.9 4.2-4.2V17.4z"/></svg>'; break;
 		case 'linkedin' 		: $output .= '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" class="linkedin"><path d="M14.2 25.9H14c-6.8 0-11.2-4.7-11.2-10.5 0-6 4.5-10.5 11.4-10.5 6.9 0 11.2 4.5 11.3 10.5C25.6 21.2 21.2 25.9 14.2 25.9zM24.3 95H4V34.2h20.3V95zM97.1 95H77V62.5c0-8.2-2.9-13.8-10.3-13.8 -5.6 0-8.9 3.7-10.4 7.4 -0.5 1.4-0.7 3.1-0.7 5V95H35.5c0.2-55.1 0-60.8 0-60.8h20.2V43h-0.1c2.6-4.2 7.4-10.3 18.4-10.3 13.3 0 23.3 8.7 23.3 27.4V95z"/></svg>'; break;
+		case 'logo' 			: $output .= '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 144 144" enable-background="new 0 0 144 144" xml:space="preserve" class="logo"><path fill="#047abb" d="M60.082 36.65c0.76-0.833 1.14-1.647 1.136-2.438 -0.003-0.797-0.196-1.63-0.583-2.505 -0.297-0.676-0.763-1.276-1.396-1.803 -0.632-0.527-1.447-0.766-2.444-0.721 -0.892 0.046-1.908 0.303-3.054 0.776 -1.146 0.471-2.745 1.16-4.797 2.061l-0.98 0.431 3.796 8.616 1.633-0.718c1.651-0.727 3.044-1.374 4.183-1.94C58.713 37.844 59.548 37.257 60.082 36.65M69.459 52.958c0.867-0.93 1.337-1.865 1.402-2.807 0.068-0.938-0.117-1.904-0.555-2.897 -0.574-1.305-1.264-2.203-2.065-2.693 -0.804-0.489-1.873-0.651-3.208-0.48 -0.91 0.116-2.076 0.475-3.496 1.081 -1.421 0.604-2.901 1.244-4.438 1.921l-2.255 0.991 4.503 10.225 0.75-0.331c2.898-1.274 4.968-2.197 6.214-2.766C67.555 54.632 68.604 53.882 69.459 52.958M123.885 38.696L94.627 51.58 76.744 10.965 87.25 6.336l14.425 32.76 18.747-8.257L123.885 38.696zM76.057 37.051c2.27 0.98 4.001 2.827 5.197 5.54 0.867 1.969 1.245 3.9 1.141 5.797 -0.109 1.896-0.626 3.658-1.555 5.283 -1.066 1.904-2.443 3.536-4.135 4.887 -1.686 1.353-3.998 2.674-6.936 3.971l-17.68 7.782L34.203 29.693l15.742-6.93c3.268-1.439 5.707-2.382 7.32-2.832 1.612-0.449 3.326-0.631 5.144-0.542 1.887 0.1 3.495 0.642 4.828 1.626 1.333 0.982 2.372 2.319 3.113 4.006 0.864 1.959 1.11 3.915 0.739 5.864 -0.371 1.953-1.312 3.757-2.824 5.42l0.096 0.217C71.223 35.896 73.788 36.071 76.057 37.051M56.317 81.449l10.507-4.627 11.188 25.404c1.244 2.826 2.761 4.674 4.551 5.538 1.787 0.865 4.009 0.716 6.658-0.452 2.614-1.15 4.23-2.656 4.85-4.518 0.623-1.861 0.287-4.263-1.005-7.197L81.878 70.193l10.51-4.629 11.413 25.92c2.211 5.02 2.379 9.541 0.506 13.553 -1.871 4.021-5.772 7.333-11.708 9.946 -5.936 2.612-11.013 3.255-15.228 1.919 -4.219-1.335-7.428-4.506-9.631-9.508L56.317 81.449zM143.258 82.275C143.737 78.918 144 75.49 144 71.999c0-39.764-32.236-72-71.998-72C32.235-0.001 0 32.235 0 71.999c0 39.768 32.235 72.002 72.002 72.002 32.579 0 60.092-21.646 68.975-51.34l-20.86 9.186 -17.887-40.615 29.353-12.925 3.459 7.859 -18.844 8.297 3.086 7.006 17.518-7.712 3.458 7.855 -17.514 7.714 4.417 10.038L143.258 82.275z"/></svg>'; break;
 		case 'message' 			: $output .= '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 144 144" enable-background="new 0 0 144 144" xml:space="preserve" class="message"><path fill="#ffffff" d="M72,60.75c0,1.245-1.005,2.25-2.25,2.25c-1.241,0-2.25-1.005-2.25-2.25c0-1.242,1.009-2.25,2.25-2.25 C70.995,58.5,72,59.508,72,60.75 M76.5,60.75c0-3.729-3.021-6.75-6.75-6.75C66.024,54,63,57.021,63,60.75s3.024,6.75,6.75,6.75 C73.479,67.5,76.5,64.479,76.5,60.75 M87.75,63c-1.241,0-2.25-1.005-2.25-2.25c0-1.242,1.009-2.25,2.25-2.25 c1.244,0,2.25,1.008,2.25,2.25C90,61.995,88.994,63,87.75,63 M87.75,67.5c3.729,0,6.75-3.021,6.75-6.75S91.479,54,87.75,54 C84.023,54,81,57.021,81,60.75S84.023,67.5,87.75,67.5 M103.5,88.743l-11.512-8.945c-0.562-0.981-1.738-1.338-2.76-0.948 c0.004-0.033,0.006-0.068,0.012-0.102H63c-4.971,0-9-4.03-9-9v-18c0-4.971,4.029-9,9-9h31.5c4.97,0,9,4.029,9,9V88.743z M63,83.25 h13.482c-0.091,4.869-4.07,8.793-8.982,8.793H54.763c0.004,0.034,0.004,0.066,0.008,0.1c-1.02-0.39-2.194-0.033-2.759,0.946 L40.5,101.99V74.189c0-4.948,4.029-8.957,9-8.957v4.518C49.5,77.203,55.546,83.25,63,83.25 M107.974,92.311 c0-0.043,0.026-21.789,0.026-22.561v-18c0-7.454-6.047-13.5-13.5-13.5H63c-7.454,0-13.5,6.046-13.5,13.5v9 c-7.454,0-13.5,6.016-13.5,13.439v8.896c0,0.767,0.024,22.415,0.027,22.458c-0.121,0.875,0.211,1.564,1.028,2.035 c1.078,0.617,2.068,0.462,3.144-0.607l13.958-10.449H67.5c7.4,0,13.4-5.929,13.491-13.271h8.851l13.959,10.496 c1.079,1.079,2.068,1.232,3.145,0.613C107.763,93.885,108.094,93.189,107.974,92.311 M139.5,72c0,37.279-30.221,67.5-67.5,67.5 c-37.278,0-67.5-30.221-67.5-67.5C4.5,34.723,34.722,4.5,72,4.5C109.279,4.5,139.5,34.723,139.5,72 M144,72 c0-39.764-32.236-72-72-72S0,32.236,0,72s32.236,72,72,72S144,111.764,144,72"/></svg>'; break;
 		case 'pinterest' 		: $output .= '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" class="pinterest"><path d="M50 97c-4.7 0-9.1-0.7-13.4-2 1.8-2.8 3.8-6.4 4.8-10.1 0 0 0.6-2.1 3.3-13 1.6 3.1 6.4 5.9 11.5 5.9 15.2 0 25.5-13.8 25.5-32.4 0-13.9-11.8-27-29.9-27 -22.3 0-33.6 16.1-33.6 29.5 0 8.1 3.1 15.3 9.6 18 1 0.4 2 0 2.3-1.2 0.2-0.8 0.7-2.9 1-3.7 0.3-1.2 0.2-1.6-0.7-2.6 -1.9-2.3-3.1-5.2-3.1-9.3 0-11.9 8.9-22.6 23.2-22.6 12.6 0 19.6 7.7 19.6 18.1 0 13.6-6 25-15 25 -4.9 0-8.6-4.1-7.4-9.1 1.4-6 4.2-12.4 4.2-16.7 0-3.9-2.1-7.1-6.4-7.1 -5 0-9.1 5.2-9.1 12.2 0 0 0 4.5 1.5 7.5 -5.2 21.9-6.1 25.7-6.1 25.7C31 85.7 31 89.7 31.1 93 14.5 85.7 2.9 69.2 2.9 49.8 2.9 23.8 24 2.7 50 2.7c26 0 47.1 21.1 47.1 47.1S76 97 50 97z"/></svg>'; break;
 		case 'plansandportals' 	: $output .= '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 144 144" enable-background="new 0 0 144 144" xml:space="preserve" class="plansandportals"><path fill="#ffffff" d="M77.903,59.5l4.378-3.545h-39.09l-12.147,50.1h79.608L99.331,59.361l-3.033,2.547l9.842,40.601H35.556L45.98,59.5H77.903z M71.687,67.25l-4.304,10.26L78.15,74.9L71.687,67.25z M49.922,66.261l-2.333,11.083h13.629l1.028-6.097l-2.995,1.757l-0.284,1.684 h-8.099l1.213-5.769h6.772l4.193-2.431l0.038-0.228H49.922z M57.109,85.594l-1.028,6.111h-8.589l1.287-6.111H57.109z M58.463,94.525 l1.983-11.754H46.49l-2.477,11.754H58.463z M63.719,66.945l-7.167,4.16l-1.87-1.797l-1.86,1.131l3.27,3.459l9.373-5.506 L63.719,66.945z M107.667,50.379l-6.869-8.131l-27.737,23.43l6.869,8.131l15.574-13.156l0.013-0.01l3.423-2.891L107.667,50.379z M112.035,46.689c1.096-0.924,1.232-2.562,0.308-3.656l-3.52-4.17c-0.925-1.092-2.562-1.229-3.657-0.308l-3.033,2.564l6.87,8.132 L112.035,46.689z M139.5,72.002c0,37.277-30.222,67.498-67.5,67.498c-37.279,0-67.5-30.221-67.5-67.498 C4.5,34.722,34.721,4.5,72,4.5C109.278,4.5,139.5,34.722,139.5,72.002 M144,72c0-39.764-32.236-72-72-72S0,32.236,0,72 s32.236,72,72,72S144,111.764,144,72"/></svg>'; break;
@@ -328,16 +332,16 @@ function decaturblue_get_svg( $svg ) {
 		case 'youtube' 			: $output .= '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" class="youtube"><path d="M89.5 90.4c-1 4.4-4.6 7.6-8.8 8 -10.2 1.2-20.4 1.2-30.7 1.2 -10.2 0-20.5 0-30.7-1.2 -4.3-0.4-7.8-3.6-8.8-8 -1.4-6.2-1.4-13-1.4-19.3 0-6.4 0.1-13.2 1.4-19.3 1-4.4 4.6-7.6 8.9-8.1 10.1-1.1 20.4-1.1 30.6-1.1 10.2 0 20.5 0 30.7 1.1 4.3 0.5 7.8 3.7 8.8 8.1 1.4 6.2 1.4 12.9 1.4 19.3C90.9 77.4 90.9 84.2 89.5 90.4zM32.4 57.3v-5.2H15.2v5.2H21v31.4h5.5V57.3H32.4zM41.4 0.5l-6.7 22v15h-5.5v-15c-0.5-2.7-1.6-6.6-3.4-11.7C24.6 7.4 23.4 4 22.3 0.5h5.9L32 15.1l3.8-14.5H41.4zM47.4 88.7V61.4h-4.9v20.9c-1.1 1.5-2.2 2.3-3.1 2.3 -0.7 0-1-0.4-1.2-1.2 -0.1-0.2-0.1-0.8-0.1-1.9V61.4h-4.9V83c0 1.9 0.2 3.2 0.4 4 0.4 1.4 1.6 2 3.2 2 1.8 0 3.6-1.1 5.6-3.4v3H47.4zM56.2 28.6c0 2.9-0.5 5.1-1.5 6.5 -1.4 1.9-3.3 2.8-5.9 2.8 -2.5 0-4.4-0.9-5.8-2.8 -1-1.4-1.5-3.6-1.5-6.5v-9.7c0-2.9 0.5-5.1 1.5-6.5 1.4-1.9 3.3-2.8 5.8-2.8 2.5 0 4.5 0.9 5.9 2.8 1 1.4 1.5 3.5 1.5 6.5V28.6zM51.2 17.9c0-2.5-0.7-3.8-2.4-3.8 -1.6 0-2.4 1.3-2.4 3.8v11.6c0 2.5 0.8 3.9 2.4 3.9 1.7 0 2.4-1.3 2.4-3.9V17.9zM66.1 69.7c0-2.5-0.1-4.4-0.5-5.5 -0.6-2-2-3.1-3.9-3.1 -1.8 0-3.5 1-5.1 3v-12h-4.9v36.6h4.9v-2.7c1.7 2 3.4 3 5.1 3 1.9 0 3.3-1 3.9-3 0.4-1.2 0.5-3 0.5-5.5V69.7zM61.2 80.9c0 2.5-0.7 3.7-2.2 3.7 -0.8 0-1.7-0.4-2.5-1.2V66.8c0.8-0.8 1.7-1.2 2.5-1.2 1.4 0 2.2 1.3 2.2 3.7V80.9zM74.8 37.6h-5v-3c-2 2.3-3.9 3.4-5.7 3.4 -1.6 0-2.8-0.7-3.3-2 -0.3-0.8-0.4-2.2-0.4-4.1V10h5v20.3c0 1.2 0 1.8 0.1 1.9 0.1 0.8 0.5 1.2 1.2 1.2 1 0 2-0.8 3.1-2.4V10h5V37.6zM84.8 79.3h-5c0 2-0.1 3.1-0.1 3.4 -0.3 1.3-1 2-2.2 2 -1.7 0-2.5-1.3-2.5-3.8V76h9.9v-5.7c0-2.9-0.5-5-1.5-6.4 -1.4-1.9-3.4-2.8-5.9-2.8 -2.5 0-4.5 0.9-5.9 2.8 -1 1.4-1.5 3.5-1.5 6.4v9.6c0 2.9 0.6 5.1 1.6 6.4 1.4 1.9 3.4 2.8 6 2.8 2.6 0 4.6-1 6-2.9 0.6-0.9 1-1.9 1.2-3 0.1-0.5 0.1-1.6 0.1-3.2V79.3zM79.9 71.9h-5v-2.5c0-2.5 0.8-3.8 2.5-3.8 1.7 0 2.5 1.3 2.5 3.8V71.9z"/></svg>'; break;
 
 	} // switch
-	
+
 	return $output;
 
 } // decaturblue_get_svg()
 
 /**
  * Prints whatever in a nice, readable format
- * 
+ *
  * @param 	mixed 		$input 		Something to pretty print, usually an array or object
- * 
+ *
  * @return 	mixed 					The input between pre tags and in print_r()
  */
 function pretty( $input ) {
@@ -356,12 +360,12 @@ function gallery_override( $output = '', $atts ) {
 	foreach ( $ids as $id ) {
 
 		$pic 	= wp_prepare_attachment_for_js( $id );
-		$return .= '<li class="image_for_viewbox" data-image="' . $pic['url'] . '"';
+		$return .= '<li class="image_for_viewbox" data-image="' . esc_attr( $pic['url'] ) . '"';
 		$items 	= array( 'caption', 'title' );
 
 		foreach ( $items as $item ) {
 
-			$return .= 'data-' . $item . '="' . $pic[$item] . '" ';
+			$return .= 'data-' . $item . '="' . esc_attr( $pic[$item] ) . '" ';
 
 		} // foreach
 
@@ -372,7 +376,10 @@ function gallery_override( $output = '', $atts ) {
 	$first = wp_prepare_attachment_for_js( $ids[0] );
 
 	$return .= '</ul></div>';
-	$return .= '<div class="view_wrap"><img class="viewbox" src="' . $first['url'] . '" /><h3 class="view_title">' . $first['title'] . '</h3><div class="view_caption">' . $first['caption'] . '</div></div><!-- .view_wrap -->';
+	$return .= '<div class="view_wrap"><img class="viewbox" src="' . esc_attr( $first['url'] );
+	$return .= '" /><h3 class="view_title">' . esc_attr( $first['title'] );
+	$return .= '</h3><div class="view_caption">' . esc_attr( $first['caption'] );
+	$return .= '</div></div><!-- .view_wrap -->';
 
 	return $return;
 
@@ -384,10 +391,10 @@ add_filter( 'post_gallery', 'gallery_override', 10, 2 );
 
 /**
  * Returns the URL of the featured image
- * 
+ *
  * @param 	int 		$postID 		The post ID
  * @param 	string 		$size 			The image size to return
- * 
+ *
  * @return 	string | bool 				The URL of the featured image, otherwise FALSE
  */
 function get_thumbnail_url( $postID, $size = 'thumbnail' ) {
@@ -401,7 +408,7 @@ function get_thumbnail_url( $postID, $size = 'thumbnail' ) {
 	$thumb_array = wp_get_attachment_image_src( $thumb_id, $size, true );
 
 	if ( empty( $thumb_array ) ) { return FALSE; }
-	
+
 	return $thumb_array[0];
 
 } // get_thumbnail_url()
@@ -444,7 +451,7 @@ function decaturblue_get_staff() {
 	$args['orderby']		= 'meta_value';
 	$args['posts_per_page'] = -1;
 	$args['post_type'] 		= 'Staff';
-	
+
 	$query = new WP_Query( $args );
 
 	return $query;
@@ -480,7 +487,7 @@ function decaturblue_staff_list() {
 
 		} else {
 
-			$output .= '<div class="emptypic"></div>';
+			$output .= '<div class="staffpic">' . decaturblue_get_svg( 'logo' ) . '</div>';
 
 		}
 
@@ -499,9 +506,97 @@ function decaturblue_staff_list() {
 
 	return $output;
 
-} // get_staff_list()
+} // decaturblue_staff_list()
 
+/**
+ * Echos the HTML style tags
+ *
+ * @access 	protected
+ * @global 	slushman_sbgs_settings
+ * @since 	0.1
+ *
+ * @param 	array 	$atts 	An array containing all the images on the page and their attributes
+ *
+ * @return  mixed 			The HTML style tags and their contents
+ */
+function decaturblue_add_bg_images() {
 
+	$images = decaturblue_get_bg_image( get_the_ID() );
+	$output = '';
 
+	if ( ! empty( $images ) ) {
 
+		$output .= '<style>';
+		$output .= 'body{background-image:url(' . $images['sizes']['medium']['url'] . ');}';
+		$output .= '@media screen and (min-width:600px){body{background-image:url(' . $images['sizes']['full']['url'] . ');}';
+		$output .= '</style>';
+
+	} else {
+
+		$default = get_field( 'default_background_image', 'option' );
+		$output .= '<style>';
+		$output .= 'body{background-image:url('. $default . ');}';
+		$output .= '</style>';
+
+	}
+
+	echo $output;
+
+} // End of decaturblue_add_bg_images()
+
+add_action( 'wp_footer', 'decaturblue_add_bg_images' );
+
+/**
+ * Returns the URL for the page header
+ *
+ * Looks for a header image for the current page
+ * If there isn't one, it grabs the parent's header image
+ *
+ * @param 	int 	$postID 		The post ID
+ *
+ * @return 	URL 					The URL for the page header image
+ */
+function decaturblue_get_bg_image( $postID ) {
+
+	$imageID = get_post_thumbnail_id( $postID );
+
+	if ( ! empty( $imageID ) ) { return wp_prepare_attachment_for_js( $imageID ); }
+
+	$ancestors = get_post_ancestors( $postID );
+
+	if ( empty( $ancestors ) ) {
+
+		return wp_prepare_attachment_for_js( 247 /*427*/ );
+
+	}
+
+	$i = 0;
+
+	foreach ( $ancestors as $ancestor ) {
+
+		$imageID = get_post_thumbnail_id( $ancestors[$i] );
+
+		if ( ! empty( $imageID ) ) { break; } else { $i++; }
+
+	} // foreach
+
+	if ( ! empty( $imageID ) ) { return wp_prepare_attachment_for_js( $imageID ); }
+
+	return wp_prepare_attachment_for_js( 427 );
+
+} // decaturblue_get_bg_image()
+
+/**
+ * Adds Theme Options page, using ACF
+ */
+if( function_exists('acf_add_options_page') ) {
+
+	$args['page_title'] 	= 'Theme Options';
+	$args['menu_title'] 	= 'Theme Options';
+	$args['parent_slug'] 	= 'themes.php';
+	$args['capabilities'] 	= 'edit_posts';
+
+	acf_add_options_sub_page( $args );
+
+}
 

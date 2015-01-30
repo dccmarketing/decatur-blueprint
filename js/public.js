@@ -31,7 +31,7 @@
             }
         },
         onAfter : function(url, $container, $content) {
- 
+
         }
     }).data('smoothState'); // makes public methods available
 });
@@ -72,7 +72,7 @@ jQuery(document).ready(function($){
 			viewbox.fadeIn(250);
 		});
 		titlebox.fadeOut(250, function() {
-			titlebox.text( title );
+			titlebox.text( title ).html();
 			titlebox.fadeIn(250);
 		});
 		captionbox.fadeOut(250, function() {
@@ -82,4 +82,17 @@ jQuery(document).ready(function($){
 
 	});
 
+});
+
+var video = document.getElementById( "bgvideo" );
+var playButton = document.getElementById( "playpause" );
+
+playButton.addEventListener("click", function() {
+	if (video.paused) {
+		video.play();
+		playButton.innerHTML = "&#10073; &#10073;";
+	} else {
+		video.pause();
+		playButton.innerHTML = "&#9658";
+	}
 });

@@ -24,8 +24,8 @@
 }
 
 .gallery-icon {
-	a { 
-		display		: block; 
+	a {
+		display		: block;
 		text-align	: center;
 	}
 
@@ -44,6 +44,11 @@
 		list-style 				: none;
 		-webkit-padding-start 	: 0;
 		margin 					: 0;
+	}
+
+	.image_for_viewbox {
+		text-decoration : underline;
+		cursor 			: pointer;
 	}
 }
 

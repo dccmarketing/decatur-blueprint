@@ -9,8 +9,6 @@
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
 	visibility: visible;
-	-webkit-transform: translate3d(-100%, 0, 0);
-	transform: translate3d(-100%, 0, 0);
 
 	.nav-plansandportals,
 	.nav-studioblue {
@@ -39,11 +37,11 @@
 		}
 
 		.menu-item-has-children a {
-			font-weight: 400;
+			font-weight: 700;
 		}
 
 		.sub-menu a {
-			font-weight: 700;
+			font-weight: 400;
 		}
 
 
@@ -68,18 +66,5 @@
 		float 	: left;
 	}
 }
-
-
-
-.st-effect-1.st-menu-open .st-effect-1.st-menu {
-	visibility: visible;
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
-}
-
-.st-effect-1.st-menu::after {
-	display: none;
-}
-
 
 

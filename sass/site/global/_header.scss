@@ -28,7 +28,46 @@
 	}
 
 	@media only screen and (min-width: $bp__tablet) {
+		margin-left 				: 100px;
+		animation-duration 			: 0.5s;
+		transition-timing-function 	: ease-in;
+		animation-fill-mode 		: both;
+
+		.page-template-page_left-sidebar-menu  &,
+		.page-template-default & {
+			animation-name 	: slideLogo;
+			width 			: inherit;
+		}
+
+		.page-template-page_content-on-left & {
+			animation-name 	: slideLogoPage;
+			width 			: inherit;
+		}
+
+		.single-staff & {
+			margin-left : 45%;
+			width 		: inherit;
+		}
+	}
+}
+
+@keyframes slideLogo {
+	0% {
 		margin-left: 100px;
+	}
+
+	100% {
+		margin-left: 425px;
+	}
+}
+
+@keyframes slideLogoPage {
+	0% {
+		margin-left: 100px;
+	}
+
+	100% {
+		margin-left: 45%;
 	}
 }
 
@@ -40,9 +79,14 @@
 }
 
 .site-description {
-	float	 		: right;
-	font-size 		: $font__size-tagline;
-	text-transform 	: lowercase;
-	color 			: $color__text-site-desc;
-	clear 			: none;
+	display: none;
+
+	.home & {
+		float	 		: right;
+		font-size 		: $font__size-tagline;
+		text-transform 	: lowercase;
+		color 			: $color__text-site-desc;
+		clear 			: none;
+		display 		: inherit;
+	}
 }

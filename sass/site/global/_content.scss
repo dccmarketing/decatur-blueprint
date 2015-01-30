@@ -1,10 +1,33 @@
 .site {
-	background 			: url( images/bkgd.jpg );
+	position 			: relative;
+	overflow 			: auto;
+
+	.home & {
+		background: none;
+	}
+}
+
+body {
 	background-size 	: cover;
 	background-repeat	: no-repeat;
 	background-position	: top center;
-	position 			: relative;
-	overflow 			: auto;
+}
+
+.bgvideo {
+	display: none;
+
+	@media only screen and (min-width: $bp__menu-button+1) {
+		display 		: inherit;
+		position 		: fixed;
+		right 			: 0;
+		bottom 			: 0;
+		min-width 		: 100%;
+		min-height 		: 100%;
+		width 			: auto;
+		height 			: auto;
+		z-index 		: -100;
+		background-size : cover;
+	}
 }
 
 .site-content {
@@ -25,8 +48,10 @@
 	display: none;
 }
 
+.page-template-default
+
 .entry-content {
-	padding 		: 1.5em;
+	padding 		: 1em;
 	margin-top 		: 0;
 	font-size 		: $font__size-side-menu;
 	overflow 		: auto;
@@ -52,7 +77,7 @@
 	transition-timing-function 	: ease-in;
 	animation-fill-mode 		: both;
 	animation-name 				: slideInLeft;
-	
+
 	& .is-exiting  {
 		animation-direction 	: alternate-reverse;
 	}
@@ -69,7 +94,7 @@
 	article.hentry {
 		width 		: 100%;
 		color 		: $color__text-content;
-		background 	: $color__bg-content;
+	//	background 	: $color__bg-content;
 
 		@media only screen and (min-width: $bp__menu-button+1) {
 			padding-left: $size__width-min-side-content;
@@ -124,11 +149,11 @@
 	}
 
 	.menu-item-has-children a {
-		font-weight: 400;
+		font-weight: 700;
 	}
 
 	.sub-menu a {
-		font-weight: 700;
+		font-weight: 400;
 	}
 }
 
@@ -206,9 +231,12 @@
 }
 
 .staffmember {
-	list-style 		: none;
-	display 		: inline-block;
-	vertical-align 	: top;
+	list-style 	: none;
+	float 		: left;
+	overflow 	: auto;
+	margin 		: 0 0 1.5em 0;
+	padding 	: 0 0.5em !important;
+	text-indent : initial !important;
 }
 
 
@@ -218,13 +246,16 @@
 	background-size 	: $size__staff-pic $size__staff-pic;
 	background-position : center center;
 	background-repeat 	: no-repeat;
+	background-color 	: $color__bg-staff-pic;
 	border-radius 		: 50%;
 	border 				: 2px solid $color__border-staff-link;
+	margin 				: 0 auto;
 }
 
 .emptypic {
-	height 				: $size__staff-pic;
-	width 				: $size__staff-pic;	
+	height 	: $size__staff-pic;
+	width 	: $size__staff-pic;
+	margin 	: 0 auto;
 }
 
 .staffname {
@@ -232,12 +263,13 @@
 }
 
 .singlestaff {
-	color: $color__text-content;
+	padding: 1em;
 
 	.staffpic {
 		height 				: $size__staff-pic-single;
 		width 				: $size__staff-pic-single;
 		background-size 	: $size__staff-pic-single $size__staff-pic-single;
+		margin 				: 0;
 	}
 
 	.staffname {
@@ -245,13 +277,50 @@
 	}
 }
 
+.single-staff {
+	background-image: url( images/building.jpg ) !important;
+
+	.site {
+		background 			: $color__bg-content;
+	}
+}
+
 .staffsingle {
 	width 		: 100%;
 	color 		: $color__text-content;
-	background 	: $color__bg-content;
+	//background 	: $color__bg-content;
 
 	@media only screen and (min-width: $bp__menu-button+1) {
 		padding-left: $size__padding-staff-single;
 	}
 }
+
+button#playpause {
+	width: 40px;
+	height: 40px;
+	margin: 1em;
+	background: transparent;
+	box-shadow: none;
+	color: white;
+	border: 2px solid white;
+	outline: none;
+
+	&:active,
+	&:focus,
+	&:hover {
+		outline: none;
+	}
+}
+
+.page-template-default {
+	.site {
+		background 			: $color__bg-content;
+	}
+
+	.entry-header {
+		padding 	: 1em;
+		text-align 	: center;
+	}
+}
+
 

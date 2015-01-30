@@ -131,17 +131,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/images\/bkgd.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1.86767e+06,
-		"inputAbbreviatedPath": "\/images\/bkgd.jpg",
-		"outputAbbreviatedPath": "\/images\/bkgd.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/images\/Blue.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -149,6 +138,50 @@
 		"initialSize": 39498,
 		"inputAbbreviatedPath": "\/images\/Blue.jpg",
 		"outputAbbreviatedPath": "\/images\/Blue.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/building.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.32639e+06,
+		"inputAbbreviatedPath": "\/images\/building.jpg",
+		"outputAbbreviatedPath": "\/images\/building.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/decblue.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 180173,
+		"inputAbbreviatedPath": "\/images\/decblue.jpg",
+		"outputAbbreviatedPath": "\/images\/decblue.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/decblue2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.55998e+07,
+		"inputAbbreviatedPath": "\/images\/decblue2.jpg",
+		"outputAbbreviatedPath": "\/images\/decblue2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/decblue3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 106724,
+		"inputAbbreviatedPath": "\/images\/decblue3.jpg",
+		"outputAbbreviatedPath": "\/images\/decblue3.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -386,11 +419,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/menu-studioblue.php": {
+	"\/menu-whatwedo.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/menu-studioblue.php",
+		"inputAbbreviatedPath": "\/menu-whatwedo.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -2705,7 +2738,7 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "macuser",
+"lastSavedByUser": "Chris Wilcoxson",
 "manualImportLinks": {
 	},
 "projectAttributes": {
